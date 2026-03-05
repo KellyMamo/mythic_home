@@ -3,15 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-<<<<<<< HEAD
- "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview"
-},
-  "dependencies": {
-    "@google/genai": "^1.41.0",
-=======
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -20,7 +11,6 @@
   "dependencies": {
     "@google/genai": "^1.41.0",
     "@supabase/supabase-js": "^2.98.0",
->>>>>>> 76144987cb73df1f9201655e3034bf34d4c00b37
     "@tailwindcss/vite": "^4.2.1",
     "body-parser": "^2.2.2",
     "cors": "^2.8.6",
