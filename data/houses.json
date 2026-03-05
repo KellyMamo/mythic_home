@@ -1,0 +1,118 @@
+[
+  {
+    "id": "1",
+    "slug": "the-grand-farmhouse",
+    "name": "The Grand Farmhouse",
+    "description": "A stunning modern farmhouse featuring wrap-around porches and an open-concept living area perfect for hosting. The primary suite offers a spa-like retreat on the main level.",
+    "style": "Modern Farmhouse",
+    "beds": 4,
+    "baths": 3.5,
+    "garageCars": 3,
+    "areaValue": 2850,
+    "areaUnit": "sq ft",
+    "price": 1250,
+    "imageUrl": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800",
+    "galleryUrls": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800"
+    ],
+    "floorplanUrls": [
+      "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&q=80&w=800"
+    ],
+    "downloadFiles": [
+      {
+        "label": "Full PDF Specs",
+        "url": "#"
+      }
+    ],
+    "published": true,
+    "createdAt": 1772646710546,
+    "updatedAt": 1772646710546,
+    "floors": 2,
+    "propertyType": "Single Family",
+    "dimensions": {
+      "width": "35' 0\"",
+      "depth": "49' 0\"",
+      "maxRidgeHeight": "19' 9\""
+    },
+    "ceilingHeights": {
+      "firstFloor": "9'",
+      "rooms": [
+        {
+          "room": "Living Room",
+          "type": "Vaulted",
+          "height": "11' 0\""
+        },
+        {
+          "room": "Bedroom 1",
+          "type": "Tray",
+          "height": "10' 0\""
+        }
+      ]
+    },
+    "roofDetails": {
+      "primaryPitch": "7.5 on 12",
+      "secondaryPitch": "12 on 12",
+      "framingType": "Truss"
+    },
+    "exteriorWalls": "2x6",
+    "specialFeatures": [
+      "Bedroom - Split",
+      "Breakfast Nook",
+      "Laundry - Main Level",
+      "Master Suite - 1st Floor",
+      "Mudroom"
+    ],
+    "planCollections": [
+      "Exclusive"
+    ],
+    "sqftBreakdown": [
+      {
+        "label": "Total Heated Area",
+        "value": "1,290 sq. ft."
+      },
+      {
+        "label": "1st Floor",
+        "value": "1,290 sq. ft."
+      },
+      {
+        "label": "Porch, Front",
+        "value": "112 sq. ft."
+      },
+      {
+        "label": "Porch, Rear",
+        "value": "114 sq. ft."
+      },
+      {
+        "label": "Porch, Combined",
+        "value": "226 sq. ft."
+      }
+    ],
+    "foundationType": {
+      "standard": "Monolithic Slab, Slab",
+      "optional": "Crawl"
+    }
+  },
+  {
+    "id": "xk62whz",
+    "slug": "new-house-xk62whz",
+    "name": "New Architectural Design",
+    "description": "Start typing your description here...",
+    "style": "Modern",
+    "beds": 3,
+    "baths": 2,
+    "garageCars": 2,
+    "areaValue": 2200,
+    "areaUnit": "sq ft",
+    "price": 1150,
+    "imageUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+    "galleryUrls": [],
+    "floorplanUrls": [],
+    "downloadFiles": [],
+    "published": false,
+    "createdAt": 1772646773986,
+    "updatedAt": 1772646774005,
+    "floors": 1,
+    "propertyType": "Single Family"
+  }
+]

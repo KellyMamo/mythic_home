@@ -1,0 +1,7 @@
+{
+  "name": "Mythic Homes - Premium House Plans",
+  "description": "A high-end architectural house plan listing and discovery platform, featuring advanced filtering and an AI-powered home design consultant.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
