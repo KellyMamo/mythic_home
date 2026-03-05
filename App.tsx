@@ -654,7 +654,11 @@ const App: React.FC = () => {
         </div>
       </footer>
 
+<<<<<<< HEAD
      {import.meta.env.DEV && <GeminiAssistant />}
+=======
+      <GeminiAssistant />
+>>>>>>> 76144987cb73df1f9201655e3034bf34d4c00b37
 
       <style>{`
         @keyframes slideUpStop {
