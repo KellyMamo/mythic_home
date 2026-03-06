@@ -1,56 +1,62 @@
-
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize the Google GenAI client using the API key exclusively from process.env.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+function getApiKey(): string {
+  return (import.meta.env.VITE_GEMINI_API_KEY || "").trim();
+}
 
-export const getDesignConsultation = async (userDescription: string) => {
-  try {
-    // Use gemini-3-pro-preview for complex reasoning tasks like architectural consulting.
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-preview',
-      contents: `User wants advice on a house design. Description: "${userDescription}". 
-      Respond as a professional architect. Give specific advice on architectural styles, 
-      room layout trends, and energy efficiency. Keep it under 200 words.`,
-      config: {
-        systemInstruction: "You are a world-class senior architectural consultant for a premium house plan marketplace.",
-        temperature: 0.7,
-      },
-    });
-    // Use the .text property to access the generated content string.
-    return response.text;
-  } catch (error) {
-    console.error("Gemini Error:", error);
-    return "I'm having trouble connecting to my design database right now. Please try again soon!";
-  }
-};
+function getClient(): GoogleGenAI | null {
+  const apiKey = getApiKey();
+  if (!apiKey) return null;
+  return new GoogleGenAI({ apiKey });
+}
 
-export const analyzeHouseImage = async (base64Image: string) => {
-  try {
-    // Use gemini-3-pro-preview for complex multimodal architectural analysis.
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-preview',
-      contents: {
-        parts: [
-          {
-            inlineData: {
-              mimeType: "image/jpeg",
-              data: base64Image,
-            },
-          },
-          {
-            text: "Describe the architectural style of this house. What are its key features? Suggest similar styles that might interest the user."
-          }
-        ]
-      },
-      config: {
-        systemInstruction: "You are an AI Architectural Critic.",
-      }
-    });
-    // Use the .text property to access the generated content string.
-    return response.text;
-  } catch (error) {
-    console.error("Gemini Image Error:", error);
-    return "Could not analyze this image. Please ensure it shows a clear house exterior.";
+export async function getDesignConsultation(prompt: string): Promise<string> {
+  const client = getClient();
+  if (!client) {
+    return "Gemini is disabled because no API key is configured.";
   }
-};
+
+  const response = await client.models.generateContent({
+    model: "gemini-1.5-flash",
+    contents: prompt,
+  });
+
+  return (
+    (response as any)?.text ||
+    (response as any)?.response?.text?.() ||
+    "No response from Gemini."
+  );
+}
+
+export async function analyzeHouseImage(
+  imageBase64: string,
+  prompt: string = "Analyze this house image."
+): Promise<string> {
+  const client = getClient();
+  if (!client) {
+    return "Gemini image analysis is disabled because no API key is configured.";
+  }
+
+  const base64 = imageBase64.includes("base64,")
+    ? imageBase64.split("base64,")[1]
+    : imageBase64;
+
+  const response = await client.models.generateContent({
+    model: "gemini-1.5-flash",
+    contents: [
+      { text: prompt },
+      {
+        inlineData: {
+          data: base64,
+          mimeType: "image/png",
+        },
+      } as any,
+    ],
+  });
+
+  return (
+    (response as any)?.text ||
+    (response as any)?.response?.text?.() ||
+    "No response from Gemini."
+  );
+}
